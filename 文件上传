@@ -1,0 +1,7 @@
+文件上传是有默认大小的，为1MB
+
+可以在yml文件中通过 spring:           来修改默认值
+                      servlet:
+                        multipart:
+                          max-file-size: 10MB
+                         
