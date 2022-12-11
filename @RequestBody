@@ -1,0 +1,2 @@
+@RequestBody 不要再get请求下使用
+默认required = true，也求是必须要携带请求体，否则报错。@RequestBody(required = false)
