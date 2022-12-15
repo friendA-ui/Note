@@ -1,0 +1,22 @@
+1. 问题起因
+  需要将业务数据放入HttpServletRequest的请求头里面。
+  被调用的模块，rest接口设计是以HttpServletRequest作为 参数的。
+  于是夫，秉信feign的接口设计必须和提供者参数一样。
+  消费者调用feign接口，报一堆奇奇怪怪的错误。报错Jackson中的错误…
+  
+2. 问题分析
+  1.feign接口是不支持HttpServletRequest作为参数的
+  2.feign和hystrix整合开启了feign对hystrix的熔断，导致feign的拦截器获取不到请求
+  
+3. 问题解决
+问题1解决, 使用feign的拦截器，将请求拦截下
+问题二解决：造成原因，feing.hystrix.enabled=true， 开启了熔断
+    解决，将上面配置更换为：
+      hystrix:
+        command:
+          default:
+            execution:
+              isolation:
+                strategy: SEMAPHORE
+
+原文链接：https://blog.csdn.net/qq_44783283/article/details/113530910
