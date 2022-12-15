@@ -1,0 +1,3 @@
+一旦开启|feign:               |   服务熔断，就要给feign接口实现熔断的实现类，@FeignClient(name = "service-ucenter", fallback = UcenterClientDegradeFeignClient.class)
+        |  hystrix:           |   并且要在 fallback 指明指明是哪个实现类。
+        |    enabled: true    |
