@@ -1,3 +1,4 @@
+feign不能传HttpServletRequest
 1. 问题起因
   需要将业务数据放入HttpServletRequest的请求头里面。
   被调用的模块，rest接口设计是以HttpServletRequest作为 参数的。
