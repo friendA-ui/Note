@@ -1,0 +1,11 @@
+1.在启动类上添加 @EnableScheduling 注解
+
+2.创建定时任务类
+  @Component
+  public class ScheduleTask {
+
+      @Scheduled(cron = "0/5 * * * * ?")
+      public void task1(){
+          System.out.println("task执行了");
+      }
+  }
