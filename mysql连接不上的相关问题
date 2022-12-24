@@ -1,0 +1,5 @@
+url后加上
+        serverTimezone=UTC    
+        useSSL=false
+        allowPublicKeyRetrieval=true
+        这三个参数
